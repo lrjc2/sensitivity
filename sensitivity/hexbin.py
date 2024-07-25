@@ -70,7 +70,7 @@ def _hex_figure_from_sensitivity_df(df: pd.DataFrame, sensitivity_cols: Sequence
                        reduce_C_function=agg_func,
                        gridsize=grid_size,
                        cmap=color_str,
-                       norm='log')
+                       norm=colors.LogNorm(vmin=df[result_name].min(), vmax=df[result_name].max())
         plt.xlabel(x)
         plt.ylabel(y)
         cb = fig.colorbar(hb, ax=ax)
